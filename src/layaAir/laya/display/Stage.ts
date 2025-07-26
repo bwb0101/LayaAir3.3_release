@@ -908,6 +908,7 @@ export class Stage extends Sprite {
         ILaya.systemTimer._update();
         ILaya.physicsTimer._update();
         ILaya.timer._update();
+        ILaya.fightTimer._update()  // @Ben 战斗计时器
         Tweener._runAll();
     }
 

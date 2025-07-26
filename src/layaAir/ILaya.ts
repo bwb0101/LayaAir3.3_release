@@ -20,6 +20,7 @@ export class ILaya {
 
     static loader: Loader = null;
     static timer: Timer = null;
+    static fightTimer: Timer = null; // @Ben 战斗时钟
     static systemTimer: Timer = null;
     static physicsTimer: Timer = null;
     static stage: Stage = null;
