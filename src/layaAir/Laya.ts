@@ -67,6 +67,11 @@ export class Laya {
      */
     static readonly timer: Timer = null;
     /**
+     * @en Reference to the fight timer.
+     * @Ben 战斗时钟的引用。
+     */
+    static readonly fightTimer: Timer = null;
+    /**
      * @en Reference to the loading manager.
      * @zh 加载管理器的引用。
      */
@@ -120,6 +125,7 @@ export class Laya {
 
         ILaya.systemTimer = (<Mutable<typeof Laya>>Laya).systemTimer = Timer.gSysTimer = systemTimer = new Timer(false);
         ILaya.timer = (<Mutable<typeof Laya>>Laya).timer = timer = new Timer(false);
+        (<Mutable<typeof Laya>>Laya).fightTimer = new Timer(false); // @Ben 战斗时钟
         ILaya.physicsTimer = (<Mutable<typeof Laya>>Laya).physicsTimer = physicsTimer = new Timer(false);
         ILaya.loader = (<Mutable<typeof Laya>>Laya).loader = loader = new Loader();
 
