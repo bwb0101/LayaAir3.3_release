@@ -1,38 +1,38 @@
-﻿import {ILaya, Mutable}        from "./ILaya";
-import {Stage}                 from "./laya/display/Stage";
-import {InputManager}          from "./laya/events/InputManager";
-import {Loader}                from "./laya/net/Loader";
-import {Render}                from "./laya/renders/Render";
-import {Browser}               from "./laya/utils/Browser";
-import {Timer}                 from "./laya/utils/Timer";
-import {IStageConfig, LayaEnv} from "./LayaEnv";
-import {Config}                from "./Config";
-import {Shader3D}              from "./laya/RenderEngine/RenderShader/Shader3D";
-import {LayaGL}                from "./laya/layagl/LayaGL";
-import {Material}              from "./laya/resource/Material";
-import {VertexElementFormat}   from "./laya/renders/VertexElementFormat";
-import {IPhysics2DFactory}     from "./laya/physics/factory/IPhysics2DFactory";
-import {VertexMesh}            from "./laya/RenderEngine/RenderShader/VertexMesh";
-import {Laya3D}                from "./Laya3D";
-import {Camera2D}              from "./laya/display/Scene2DSpecial/Camera2D";
-import {BaseRenderNode2D}      from "./laya/NodeRender2D/BaseRenderNode2D";
-import {Texture2D}             from "./laya/resource/Texture2D";
-import {Texture2DArray}        from "./laya/resource/Texture2DArray";
-import {TextureCube}           from "./laya/resource/TextureCube";
-import {HalfFloatUtils}        from "./laya/utils/HalfFloatUtils";
-import {BlendModeHandler}      from "./laya/webgl/canvas/BlendMode";
-import {Shader2D}              from "./laya/webgl/shader/d2/Shader2D";
-import {ShaderDefines2D}       from "./laya/webgl/shader/d2/ShaderDefines2D";
-import {HTMLCanvas}            from "./laya/resource/HTMLCanvas";
-import {PAL}                   from "./laya/platform/PlatformAdapters";
-import {SoundManager}          from "./laya/media/SoundManager";
-import {GraphicsMesh}          from "./laya/webgl/utils/GraphicsMesh";
-import {Mesh2DRender}          from "./laya/display/Scene2DSpecial/Mesh2DRender";
-import {PostProcess2D}         from "./laya/display/PostProcess2D";
-import {Render2DProcessor}     from "./laya/display/Render2DProcessor";
-import {GraphicsRunner}        from "./laya/display/Scene2DSpecial/GraphicsRunner";
-import {Blit2DCMD}             from "./laya/display/Scene2DSpecial/RenderCMD2D/Blit2DCMD";
-import {Scene}                 from "./laya/display/Scene";
+﻿import { ILaya, Mutable } from "./ILaya";
+import { Stage } from "./laya/display/Stage";
+import { InputManager } from "./laya/events/InputManager";
+import { Loader } from "./laya/net/Loader";
+import { Render } from "./laya/renders/Render";
+import { Browser } from "./laya/utils/Browser";
+import { Timer } from "./laya/utils/Timer";
+import { IStageConfig, LayaEnv } from "./LayaEnv";
+import { Config } from "./Config";
+import { Shader3D } from "./laya/RenderEngine/RenderShader/Shader3D";
+import { LayaGL } from "./laya/layagl/LayaGL";
+import { Material } from "./laya/resource/Material";
+import { VertexElementFormat } from "./laya/renders/VertexElementFormat";
+import { IPhysics2DFactory } from "./laya/physics/factory/IPhysics2DFactory";
+import { VertexMesh } from "./laya/RenderEngine/RenderShader/VertexMesh";
+import { Laya3D } from "./Laya3D";
+import { Camera2D } from "./laya/display/Scene2DSpecial/Camera2D";
+import { BaseRenderNode2D } from "./laya/NodeRender2D/BaseRenderNode2D";
+import { Texture2D } from "./laya/resource/Texture2D";
+import { Texture2DArray } from "./laya/resource/Texture2DArray";
+import { TextureCube } from "./laya/resource/TextureCube";
+import { HalfFloatUtils } from "./laya/utils/HalfFloatUtils";
+import { BlendModeHandler } from "./laya/webgl/canvas/BlendMode";
+import { Shader2D } from "./laya/webgl/shader/d2/Shader2D";
+import { ShaderDefines2D } from "./laya/webgl/shader/d2/ShaderDefines2D";
+import { HTMLCanvas } from "./laya/resource/HTMLCanvas";
+import { PAL } from "./laya/platform/PlatformAdapters";
+import { SoundManager } from "./laya/media/SoundManager";
+import { GraphicsMesh } from "./laya/webgl/utils/GraphicsMesh";
+import { Mesh2DRender } from "./laya/display/Scene2DSpecial/Mesh2DRender";
+import { PostProcess2D } from "./laya/display/PostProcess2D";
+import { Render2DProcessor } from "./laya/display/Render2DProcessor";
+import { GraphicsRunner } from "./laya/display/Scene2DSpecial/GraphicsRunner";
+import { Blit2DCMD } from "./laya/display/Scene2DSpecial/RenderCMD2D/Blit2DCMD";
+import { Scene } from "./laya/display/Scene";
 
 /**
  * @en Laya is the reference entry for global objects.
@@ -117,7 +117,7 @@ export class Laya {
         let stageConfig: IStageConfig;
         if (typeof (args[0]) === "number") {
             stageConfig = {
-                designWidth:  args[0],
+                designWidth: args[0],
                 designHeight: args[1]
             };
         } else {
@@ -261,9 +261,9 @@ export class Laya {
      */
     static _onGlobalError(ev: ErrorEvent | PromiseRejectionEvent) {
         let msg = "Something went wrong\n"
-                  + ((ev as ErrorEvent).message || (ev as PromiseRejectionEvent).reason)
-                  + "\n"
-                  + ((ev as any).stack || (ev as ErrorEvent).error?.stack);
+            + ((ev as ErrorEvent).message || (ev as PromiseRejectionEvent).reason)
+            + "\n"
+            + ((ev as any).stack || (ev as ErrorEvent).error?.stack);
         if (_erralert++ < 5) {
             PAL.browser.alert(msg);
         } else {
